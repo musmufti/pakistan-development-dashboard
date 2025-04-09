@@ -8,7 +8,7 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     .dashboard-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .chart-container { height: 400px; margin-bottom: 30px; }
+    .chart-container { height: 400px; margin-bottom: 30px; position: relative; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
     .nav-link.active { color: #006996; border-bottom: 2px solid #006996; }
@@ -50,7 +50,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Development Financing Sources in Pakistan (Million USD)</h5>
-              <div class="chart-container" id="financingChart"></div>
+              <div class="chart-container">
+                <canvas id="financingChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> World Bank and IFC financing has increased steadily over the past 7 years, with IFC financing growing by 87% since 2017, demonstrating strong support during economic challenges.</p>
               </div>
@@ -61,7 +63,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Development Financing Growth (2017-2024)</h5>
-              <div class="chart-container" id="financingGrowthChart"></div>
+              <div class="chart-container">
+                <canvas id="financingGrowthChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> IFC financing has shown consistent growth, with a notable acceleration in 2023-2024, reflecting increased private sector development initiatives post-pandemic.</p>
               </div>
@@ -78,7 +82,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Development Indicators Trends</h5>
-              <div class="chart-container" id="indicatorsChart"></div>
+              <div class="chart-container">
+                <canvas id="indicatorsChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> After strong post-pandemic recovery in 2021-2022, Pakistan faced economic challenges in 2023 with growth slowing to 0.3%, followed by moderate recovery to 2.6% in 2024 supported by World Bank stabilization programs.</p>
               </div>
@@ -89,7 +95,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Social Development Progress</h5>
-              <div class="chart-container" id="socialChart"></div>
+              <div class="chart-container">
+                <canvas id="socialChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> Renewable energy adoption has been the fastest-growing indicator, nearly doubling from 24% to 46% between 2017-2024, reflecting Pakistan's accelerated commitment to climate initiatives.</p>
               </div>
@@ -106,7 +114,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">World Bank Group Sectoral Focus in Pakistan</h5>
-              <div class="chart-container" id="sectoralPieChart"></div>
+              <div class="chart-container">
+                <canvas id="sectoralPieChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> Energy sector receives the highest investment (38%), reflecting Pakistan's focus on resolving energy crises and transitioning to renewable sources.</p>
               </div>
@@ -117,7 +127,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Sectoral Impact Assessment (1-5 Scale)</h5>
-              <div class="chart-container" id="sectoralRadarChart"></div>
+              <div class="chart-container">
+                <canvas id="sectoralRadarChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> Energy sector shows the highest impact and sustainability scores, reflecting successful World Bank Group infrastructure investments.</p>
               </div>
@@ -134,7 +146,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Regional Distribution of World Bank Projects</h5>
-              <div class="chart-container" id="regionalBarChart"></div>
+              <div class="chart-container">
+                <canvas id="regionalBarChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> Punjab shows the highest development impact score (4.7/5), while Balochistan scores lowest (3.2/5), highlighting regional development disparities.</p>
               </div>
@@ -145,7 +159,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Population vs. Project Distribution</h5>
-              <div class="chart-container" id="populationImpactChart"></div>
+              <div class="chart-container">
+                <canvas id="populationImpactChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> Smaller regions like Gilgit-Baltistan show disproportionately high impact scores relative to population, demonstrating targeted development approaches.</p>
               </div>
@@ -162,7 +178,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Pakistan's Sustainable Development Performance</h5>
-              <div class="chart-container" id="sustainableRadarChart"></div>
+              <div class="chart-container">
+                <canvas id="sustainableRadarChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> Pakistan outperforms regional averages in Renewable Energy and Digital Adoption, but lags in Gender Equality and Financial Inclusion.</p>
               </div>
@@ -173,7 +191,9 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Sustainable Development Progress</h5>
-              <div class="chart-container" id="sustainableBarChart"></div>
+              <div class="chart-container">
+                <canvas id="sustainableBarChartCanvas"></canvas>
+              </div>
               <div class="insight">
                 <p><strong>Key Insight:</strong> In Renewable Energy, Pakistan scores 75/100, significantly above the South Asian average of 63, reflecting successful World Bank green energy initiatives.</p>
               </div>
@@ -186,13 +206,13 @@
     <footer class="footer">
       <p>Data sources: World Bank Open Data, IFC Development Impact Reports, Pakistan Bureau of Statistics</p>
       <p>Last updated: April 2025 | Note: This visualization uses representative data based on publicly available reports</p>
-      <p>Created by [Your Name] | Portfolio visualization for World Bank Group application</p>
+      <p>Created by Mustafa Kamal Mufti </p>
     </footer>
   </div>
 
   <!-- Load scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
   <script>
     // Data
     const financingData = [
@@ -261,397 +281,417 @@
     // Function to create charts when document is loaded
     document.addEventListener('DOMContentLoaded', function() {
       // Financing Chart
-      const financingCtx = document.getElementById('financingChart').getContext('2d');
-      new Chart(financingCtx, {
-        type: 'bar',
-        data: {
-          labels: financingData.map(d => d.year),
-          datasets: [
-            {
-              label: 'IFC Financing',
-              data: financingData.map(d => d.ifc),
-              backgroundColor: '#006996',
-              stack: 'Stack 0'
-            },
-            {
-              label: 'World Bank Loans',
-              data: financingData.map(d => d.worldBank),
-              backgroundColor: '#4DB6AC',
-              stack: 'Stack 0'
-            },
-            {
-              label: 'Domestic Public Finance',
-              data: financingData.map(d => d.domestic),
-              backgroundColor: '#5C6BC0',
-              stack: 'Stack 0'
-            },
-            {
-              label: 'Private Investment',
-              data: financingData.map(d => d.private),
-              backgroundColor: '#FFB74D',
-              stack: 'Stack 0'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            title: {
-              display: false
-            }
+      const financingChart = new Chart(
+        document.getElementById('financingChartCanvas'),
+        {
+          type: 'bar',
+          data: {
+            labels: financingData.map(d => d.year),
+            datasets: [
+              {
+                label: 'IFC Financing',
+                data: financingData.map(d => d.ifc),
+                backgroundColor: '#006996',
+                stack: 'Stack 0'
+              },
+              {
+                label: 'World Bank Loans',
+                data: financingData.map(d => d.worldBank),
+                backgroundColor: '#4DB6AC',
+                stack: 'Stack 0'
+              },
+              {
+                label: 'Domestic Public Finance',
+                data: financingData.map(d => d.domestic),
+                backgroundColor: '#5C6BC0',
+                stack: 'Stack 0'
+              },
+              {
+                label: 'Private Investment',
+                data: financingData.map(d => d.private),
+                backgroundColor: '#FFB74D',
+                stack: 'Stack 0'
+              }
+            ]
           },
-          scales: {
-            x: {
-              stacked: true,
-            },
-            y: {
-              stacked: true,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
               title: {
-                display: true,
-                text: 'Million USD'
+                display: false
+              }
+            },
+            scales: {
+              x: {
+                stacked: true,
+              },
+              y: {
+                stacked: true,
+                title: {
+                  display: true,
+                  text: 'Million USD'
+                }
               }
             }
           }
         }
-      });
+      );
 
       // Financing Growth Chart
-      const growthCtx = document.getElementById('financingGrowthChart').getContext('2d');
-      new Chart(growthCtx, {
-        type: 'line',
-        data: {
-          labels: financingData.map(d => d.year),
-          datasets: [
-            {
-              label: 'IFC Financing',
-              data: financingData.map(d => d.ifc),
-              fill: true,
-              backgroundColor: 'rgba(0, 105, 150, 0.2)',
-              borderColor: '#006996',
-              tension: 0.3
-            },
-            {
-              label: 'World Bank Loans',
-              data: financingData.map(d => d.worldBank),
-              fill: true,
-              backgroundColor: 'rgba(77, 182, 172, 0.2)',
-              borderColor: '#4DB6AC',
-              tension: 0.3
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              title: {
-                display: true,
-                text: 'Million USD'
+      const growthChart = new Chart(
+        document.getElementById('financingGrowthChartCanvas'),
+        {
+          type: 'line',
+          data: {
+            labels: financingData.map(d => d.year),
+            datasets: [
+              {
+                label: 'IFC Financing',
+                data: financingData.map(d => d.ifc),
+                fill: true,
+                backgroundColor: 'rgba(0, 105, 150, 0.2)',
+                borderColor: '#006996',
+                tension: 0.3
+              },
+              {
+                label: 'World Bank Loans',
+                data: financingData.map(d => d.worldBank),
+                fill: true,
+                backgroundColor: 'rgba(77, 182, 172, 0.2)',
+                borderColor: '#4DB6AC',
+                tension: 0.3
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                title: {
+                  display: true,
+                  text: 'Million USD'
+                }
               }
             }
           }
         }
-      });
+      );
 
       // Development Indicators Chart
-      const indicatorsCtx = document.getElementById('indicatorsChart').getContext('2d');
-      new Chart(indicatorsCtx, {
-        type: 'line',
-        data: {
-          labels: developmentIndicatorsData.map(d => d.year),
-          datasets: [
-            {
-              label: 'GDP Growth (%)',
-              data: developmentIndicatorsData.map(d => d.gdpGrowth),
-              borderColor: '#006996',
-              tension: 0.3,
-              fill: false
-            },
-            {
-              label: 'Poverty Rate (%)',
-              data: developmentIndicatorsData.map(d => d.povertyRate),
-              borderColor: '#FF5252',
-              tension: 0.3,
-              fill: false
-            },
-            {
-              label: 'Access to Finance (%)',
-              data: developmentIndicatorsData.map(d => d.accessToFinance),
-              borderColor: '#FFB74D',
-              tension: 0.3,
-              fill: false
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false
+      const indicatorsChart = new Chart(
+        document.getElementById('indicatorsChartCanvas'),
+        {
+          type: 'line',
+          data: {
+            labels: developmentIndicatorsData.map(d => d.year),
+            datasets: [
+              {
+                label: 'GDP Growth (%)',
+                data: developmentIndicatorsData.map(d => d.gdpGrowth),
+                borderColor: '#006996',
+                tension: 0.3,
+                fill: false
+              },
+              {
+                label: 'Poverty Rate (%)',
+                data: developmentIndicatorsData.map(d => d.povertyRate),
+                borderColor: '#FF5252',
+                tension: 0.3,
+                fill: false
+              },
+              {
+                label: 'Access to Finance (%)',
+                data: developmentIndicatorsData.map(d => d.accessToFinance),
+                borderColor: '#FFB74D',
+                tension: 0.3,
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
         }
-      });
+      );
 
       // Social Development Chart
-      const socialCtx = document.getElementById('socialChart').getContext('2d');
-      new Chart(socialCtx, {
-        type: 'line',
-        data: {
-          labels: developmentIndicatorsData.map(d => d.year),
-          datasets: [
-            {
-              label: 'Literacy Rate (%)',
-              data: developmentIndicatorsData.map(d => d.literacy),
-              borderColor: '#5C6BC0',
-              tension: 0.3,
-              fill: false
-            },
-            {
-              label: 'Renewable Energy (%)',
-              data: developmentIndicatorsData.map(d => d.renewableEnergy),
-              borderColor: '#4DB6AC',
-              tension: 0.3,
-              fill: false
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false
+      const socialChart = new Chart(
+        document.getElementById('socialChartCanvas'),
+        {
+          type: 'line',
+          data: {
+            labels: developmentIndicatorsData.map(d => d.year),
+            datasets: [
+              {
+                label: 'Literacy Rate (%)',
+                data: developmentIndicatorsData.map(d => d.literacy),
+                borderColor: '#5C6BC0',
+                tension: 0.3,
+                fill: false
+              },
+              {
+                label: 'Renewable Energy (%)',
+                data: developmentIndicatorsData.map(d => d.renewableEnergy),
+                borderColor: '#4DB6AC',
+                tension: 0.3,
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
         }
-      });
+      );
 
       // Sectoral Pie Chart
-      const sectoralPieCtx = document.getElementById('sectoralPieChart').getContext('2d');
-      new Chart(sectoralPieCtx, {
-        type: 'pie',
-        data: {
-          labels: sectoralFocusData.map(d => d.name),
-          datasets: [{
-            data: sectoralFocusData.map(d => d.value),
-            backgroundColor: [
-              '#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'
-            ]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'right'
+      const sectoralPieChart = new Chart(
+        document.getElementById('sectoralPieChartCanvas'),
+        {
+          type: 'pie',
+          data: {
+            labels: sectoralFocusData.map(d => d.name),
+            datasets: [{
+              data: sectoralFocusData.map(d => d.value),
+              backgroundColor: [
+                '#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'
+              ]
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right'
+              }
             }
           }
         }
-      });
+      );
 
       // Sectoral Radar Chart
-      const sectoralRadarCtx = document.getElementById('sectoralRadarChart').getContext('2d');
-      new Chart(sectoralRadarCtx, {
-        type: 'radar',
-        data: {
-          labels: ['Energy', 'Agriculture', 'Infrastructure', 'SMEs', 'Health'],
-          datasets: [
-            {
-              label: 'Impact Score',
-              data: [4.2, 3.9, 4.0, 3.5, 3.7],
-              fill: true,
-              backgroundColor: 'rgba(0, 105, 150, 0.2)',
-              borderColor: '#006996',
-              pointBackgroundColor: '#006996',
-              pointBorderColor: '#fff',
-              pointHoverBackgroundColor: '#fff',
-              pointHoverBorderColor: '#006996'
-            },
-            {
-              label: 'Sustainability Score',
-              data: [3.8, 3.2, 3.5, 2.9, 3.1],
-              fill: true,
-              backgroundColor: 'rgba(255, 183, 77, 0.2)',
-              borderColor: '#FFB74D',
-              pointBackgroundColor: '#FFB74D',
-              pointBorderColor: '#fff',
-              pointHoverBackgroundColor: '#fff',
-              pointHoverBorderColor: '#FFB74D'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
-              min: 0,
-              max: 5,
-              ticks: {
-                stepSize: 1
+      const sectoralRadarChart = new Chart(
+        document.getElementById('sectoralRadarChartCanvas'),
+        {
+          type: 'radar',
+          data: {
+            labels: ['Energy', 'Agriculture', 'Infrastructure', 'SMEs', 'Health'],
+            datasets: [
+              {
+                label: 'Impact Score',
+                data: [4.2, 3.9, 4.0, 3.5, 3.7],
+                fill: true,
+                backgroundColor: 'rgba(0, 105, 150, 0.2)',
+                borderColor: '#006996',
+                pointBackgroundColor: '#006996',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#006996'
+              },
+              {
+                label: 'Sustainability Score',
+                data: [3.8, 3.2, 3.5, 2.9, 3.1],
+                fill: true,
+                backgroundColor: 'rgba(255, 183, 77, 0.2)',
+                borderColor: '#FFB74D',
+                pointBackgroundColor: '#FFB74D',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#FFB74D'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                min: 0,
+                max: 5,
+                ticks: {
+                  stepSize: 1
+                }
               }
             }
           }
         }
-      });
+      );
 
       // Regional Bar Chart
-      const regionalBarCtx = document.getElementById('regionalBarChart').getContext('2d');
-      new Chart(regionalBarCtx, {
-        type: 'bar',
-        data: {
-          labels: regionImpactData.map(d => d.region),
-          datasets: [{
-            label: 'Development Impact Score (1-5)',
-            data: regionImpactData.map(d => d.impact),
-            backgroundColor: '#006996'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              min: 0,
-              max: 5
+      const regionalBarChart = new Chart(
+        document.getElementById('regionalBarChartCanvas'),
+        {
+          type: 'bar',
+          data: {
+            labels: regionImpactData.map(d => d.region),
+            datasets: [{
+              label: 'Development Impact Score (1-5)',
+              data: regionImpactData.map(d => d.impact),
+              backgroundColor: '#006996'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                min: 0,
+                max: 5
+              }
             }
           }
         }
-      });
+      );
 
       // Population vs Impact Chart
-      const popImpactCtx = document.getElementById('populationImpactChart').getContext('2d');
-      new Chart(popImpactCtx, {
-        type: 'bar',
-        data: {
-          labels: regionImpactData.map(d => d.region),
-          datasets: [
-            {
-              label: 'Population (Millions)',
-              data: regionImpactData.map(d => d.population),
-              backgroundColor: '#006996',
-              yAxisID: 'y'
-            },
-            {
-              label: 'Development Impact Score',
-              data: regionImpactData.map(d => d.impact),
-              backgroundColor: '#FFB74D',
-              yAxisID: 'y1',
-              type: 'line'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              type: 'linear',
-              position: 'left',
-              title: {
-                display: true,
-                text: 'Population (Millions)'
-              }
-            },
-            y1: {
-              type: 'linear',
-              position: 'right',
-              grid: {
-                drawOnChartArea: false
+      const popImpactChart = new Chart(
+        document.getElementById('populationImpactChartCanvas'),
+        {
+          type: 'bar',
+          data: {
+            labels: regionImpactData.map(d => d.region),
+            datasets: [
+              {
+                label: 'Population (Millions)',
+                data: regionImpactData.map(d => d.population),
+                backgroundColor: '#006996',
+                yAxisID: 'y'
               },
-              min: 0,
-              max: 5,
-              title: {
-                display: true,
-                text: 'Impact Score (1-5)'
+              {
+                label: 'Development Impact Score',
+                data: regionImpactData.map(d => d.impact),
+                backgroundColor: '#FFB74D',
+                yAxisID: 'y1',
+                type: 'line'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                type: 'linear',
+                position: 'left',
+                title: {
+                  display: true,
+                  text: 'Population (Millions)'
+                }
+              },
+              y1: {
+                type: 'linear',
+                position: 'right',
+                grid: {
+                  drawOnChartArea: false
+                },
+                min: 0,
+                max: 5,
+                title: {
+                  display: true,
+                  text: 'Impact Score (1-5)'
+                }
               }
             }
           }
         }
-      });
+      );
 
       // Sustainable Radar Chart
-      const sustainableRadarCtx = document.getElementById('sustainableRadarChart').getContext('2d');
-      new Chart(sustainableRadarCtx, {
-        type: 'radar',
-        data: {
-          labels: sustainableDevelopmentData.map(d => d.category),
-          datasets: [
-            {
-              label: 'Pakistan',
-              data: sustainableDevelopmentData.map(d => d.pakistan),
-              fill: true,
-              backgroundColor: 'rgba(0, 105, 150, 0.2)',
-              borderColor: '#006996',
-              pointBackgroundColor: '#006996',
-              pointBorderColor: '#fff'
-            },
-            {
-              label: 'South Asia Average',
-              data: sustainableDevelopmentData.map(d => d.southAsia),
-              fill: true,
-              backgroundColor: 'rgba(255, 128, 66, 0.2)',
-              borderColor: '#FF8042',
-              pointBackgroundColor: '#FF8042',
-              pointBorderColor: '#fff'
-            },
-            {
-              label: 'Global Average',
-              data: sustainableDevelopmentData.map(d => d.globalAvg),
-              fill: true,
-              backgroundColor: 'rgba(136, 132, 216, 0.2)',
-              borderColor: '#8884d8',
-              pointBackgroundColor: '#8884d8',
-              pointBorderColor: '#fff'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
-              min: 0,
-              max: 100,
-              ticks: {
-                stepSize: 20
+      const sustainableRadarChart = new Chart(
+        document.getElementById('sustainableRadarChartCanvas'),
+        {
+          type: 'radar',
+          data: {
+            labels: sustainableDevelopmentData.map(d => d.category),
+            datasets: [
+              {
+                label: 'Pakistan',
+                data: sustainableDevelopmentData.map(d => d.pakistan),
+                fill: true,
+                backgroundColor: 'rgba(0, 105, 150, 0.2)',
+                borderColor: '#006996',
+                pointBackgroundColor: '#006996',
+                pointBorderColor: '#fff'
+              },
+              {
+                label: 'South Asia Average',
+                data: sustainableDevelopmentData.map(d => d.southAsia),
+                fill: true,
+                backgroundColor: 'rgba(255, 128, 66, 0.2)',
+                borderColor: '#FF8042',
+                pointBackgroundColor: '#FF8042',
+                pointBorderColor: '#fff'
+              },
+              {
+                label: 'Global Average',
+                data: sustainableDevelopmentData.map(d => d.globalAvg),
+                fill: true,
+                backgroundColor: 'rgba(136, 132, 216, 0.2)',
+                borderColor: '#8884d8',
+                pointBackgroundColor: '#8884d8',
+                pointBorderColor: '#fff'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                min: 0,
+                max: 100,
+                ticks: {
+                  stepSize: 20
+                }
               }
             }
           }
         }
-      });
+      );
 
       // Sustainable Bar Chart
-      const sustainableBarCtx = document.getElementById('sustainableBarChart').getContext('2d');
-      new Chart(sustainableBarCtx, {
-        type: 'bar',
-        data: {
-          labels: sustainableDevelopmentData.map(d => d.category),
-          datasets: [
-            {
-              label: 'Pakistan',
-              data: sustainableDevelopmentData.map(d => d.pakistan),
-              backgroundColor: '#006996'
-            },
-            {
-              label: 'South Asia Average',
-              data: sustainableDevelopmentData.map(d => d.southAsia),
-              backgroundColor: '#FF8042'
-            },
-            {
-              label: 'Global Average',
-              data: sustainableDevelopmentData.map(d => d.globalAvg),
-              backgroundColor: '#8884d8'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          indexAxis: 'y',
-          scales: {
-            x: {
-              min: 0,
-              max: 100
+      const sustainableBarChart = new Chart(
+        document.getElementById('sustainableBarChartCanvas'),
+        {
+          type: 'bar',
+          data: {
+            labels: sustainableDevelopmentData.map(d => d.category),
+            datasets: [
+              {
+                label: 'Pakistan',
+                data: sustainableDevelopmentData.map(d => d.pakistan),
+                backgroundColor: '#006996'
+              },
+              {
+                label: 'South Asia Average',
+                data: sustainableDevelopmentData.map(d => d.southAsia),
+                backgroundColor: '#FF8042'
+              },
+              {
+                label: 'Global Average',
+                data: sustainableDevelopmentData.map(d => d.globalAvg),
+                backgroundColor: '#8884d8'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            scales: {
+              x: {
+                min: 0,
+                max: 100
+              }
             }
           }
         }
-      });
+      );
     });
   </script>
 </body>
