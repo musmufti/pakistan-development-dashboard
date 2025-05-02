@@ -1,4 +1,6 @@
 # Pakistan Development Dashboard
+https://musmufti.github.io/pakistan-development-dashboard/
+
 
 ## Overview
 An interactive data visualization dashboard showcasing Pakistan's development journey and the impact of World Bank Group initiatives from 2017-2024. This dashboard presents key economic and development indicators, sectoral funding distribution, regional impacts, and sustainable development progress.
